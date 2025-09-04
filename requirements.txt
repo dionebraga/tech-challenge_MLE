@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+requests
+beautifulsoup4
+lxml
+pandas
+pydantic
+sqlalchemy
+aiosqlite
+httpx
+pytest
+
