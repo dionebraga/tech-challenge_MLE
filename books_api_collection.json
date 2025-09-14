@@ -1,0 +1,302 @@
+{
+    "info": {
+        "name": "Books API",
+        "description": "Collection organizada com 📚 Livros e 🏷️ Categorias",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "📚 Livros",
+            "item": [
+                {
+                    "name": "GET Todos os Livros",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "GET Livro por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "POST Criar Livro",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"O Senhor dos An\\u00e9is\",\n    \"price\": 200,\n    \"category_id\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "PUT Atualizar Livro",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"O Senhor dos An\\u00e9is - Edi\\u00e7\\u00e3o Revisada\",\n    \"price\": 220,\n    \"category_id\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "PATCH Atualizar Parcialmente Livro",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"price\": 180\n}"
+                        },
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DELETE Livro",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/books/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🏷️ Categorias",
+            "item": [
+                {
+                    "name": "GET Todas Categorias",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/categories",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "GET Categoria por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/categories/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "POST Criar Categoria",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Fic\\u00e7\\u00e3o\"\n}"
+                        },
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/categories",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "PUT Atualizar Categoria",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Romance\"\n}"
+                        },
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/categories/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DELETE Categoria",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "https://tech-challenge-mle.onrender.com/api/v1/categories/1",
+                            "protocol": "https",
+                            "host": [
+                                "tech-challenge-mle",
+                                "onrender",
+                                "com"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
