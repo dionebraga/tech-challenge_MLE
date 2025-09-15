@@ -1,5 +1,8 @@
 {
     "python-envs.pythonProjects": [],
     "python-envs.defaultEnvManager": "ms-python.python:system",
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "python.analysis.extraPaths": [
+        "./tech_challenge_books_api"
+    ]
 }
