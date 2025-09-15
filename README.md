@@ -1,144 +1,116 @@
-📚 Tech Challenge - Sistema de Web Scraping + API RESTful
+# 📚 Tech Challenge - Books API  
 
-📝 Descrição do Projeto
+API RESTful desenvolvida em **FastAPI** como parte do Tech Challenge, integrada com um **sistema de web scraping** que coleta dados de [Books to Scrape](https://books.toscrape.com/) e disponibiliza via endpoints documentados no **Swagger UI**.  
 
-Este projeto faz parte do Tech Challenge e tem como objetivo a criação de um sistema completo que integra:
+🚀 Deploy disponível em: [tech-challenge-mle.onrender.com](https://tech-challenge-mle.onrender.com/docs)  
 
-Web Scraping: extração de dados de livros do site Books to Scrape
-.
+---
 
-Armazenamento Local: persistência dos dados em arquivos CSV.
+## 🗂 Estrutura do Projeto
 
-API RESTful: implementação em FastAPI, com endpoints documentados em Swagger.
-
-Deploy Público: aplicação hospedada e acessível via Render.
-
-Plano Arquitetural: pipeline pensado para escalabilidade, integração com ML e consumo por cientistas de dados.
-
-🏗 Arquitetura do Projeto
+```bash
 tech_challenge/
-│
 ├── tech_challenge_books_api/
-│   ├── main.py                # Arquivo principal da API
-│   ├── routers/               # Rotas (Books e Categories)
-│   ├── schemas/               # Schemas Pydantic
-│   ├── models/                # Modelos ORM
-│   ├── repositories/          # Regras de acesso a dados
-│   └── infra/                 # Banco de dados / conexões
-│
-├── scripts/
-│   └── scraper.py             # Script de Web Scraping
-│
-├── data/
-│   └── books.csv              # Dados extraídos
-│
-├── requirements.txt           # Dependências do projeto
-├── render.yaml                # Configuração de deploy no Render
-└── README.md                  # Documentação do projeto
+│   ├── main.py               # Ponto de entrada da aplicação
+│   ├── infra/                # Configurações de banco e conexão
+│   ├── routers/              # Rotas (books, categories)
+│   ├── repositories/         # Lógica de persistência
+│   ├── schemas/              # Schemas Pydantic (validação e responses)
+│   └── models/               # Modelos ORM
+├── scripts/                  # Scripts de scraping
+│   └── scraping_books.py
+├── data/                     # Dados exportados em CSV
+├── requirements.txt          # Dependências do projeto
+└── README.md
 
 ⚙️ Instalação e Configuração
-Pré-requisitos
 
-Python 3.10+
+Clone o repositório:
 
-Git
-
-Ambiente virtual (venv) configurado
-
-Passos
-# Clone o repositório
 git clone https://github.com/seu-usuario/tech_challenge.git
 cd tech_challenge
 
-# Crie e ative o ambiente virtual
+Crie um ambiente virtual:
+
 python -m venv .venv
 source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 
-# Instale as dependências
+Instale as dependências:
 pip install -r requirements.txt
 
-🚀 Execução Local
-Rodar o Web Scraper
-python scripts/scraper.py
-
-
-Isso vai gerar um arquivo data/books.csv com os dados coletados.
-
-Rodar a API Localmente
+Rode localmente:
 uvicorn tech_challenge_books_api.main:app --reload
 
+Acesse em: http://127.0.0.1:8000/docs
 
-Acesse em: http://127.0.0.1:8000
+🌐 Documentação da API
 
-Documentação Swagger: http://127.0.0.1:8000/docs
+A documentação interativa está disponível via Swagger UI:
+👉 /docs
 
-🌍 Deploy Público
+📖 Endpoints principais
+📚 Livros (/api/v1/books)
 
-A API está disponível em produção via Render:
+GET / → Lista todos os livros.
+POST / → Adiciona um novo livro.
+PATCH /{id} → Atualiza informações de um livro.
+DELETE /{id} → Remove um livro.
 
-🔗 https://tech-challenge-mle.onrender.com/docs
+🏷 Categorias (/api/v1/categories)
 
-📌 Endpoints da API
-📘 Books
+GET / → Lista todas as categorias.
+POST / → Adiciona uma nova categoria.
+PATCH /{id} → Atualiza informações de uma categoria.
+DELETE /{id} → Remove uma categoria.
 
-GET /api/v1/books/ → Lista todos os livros
+📊 Exemplo de Request/Response
+Criar um livro
 
-GET /api/v1/books/{id} → Busca livro por ID
+Request:
 
-POST /api/v1/books/ → Cria novo livro
-
-PATCH /api/v1/books/{id} → Atualiza dados de um livro
-
-DELETE /api/v1/books/{id} → Remove livro
-
-📂 Categories
-
-GET /api/v1/categories/ → Lista todas as categorias
-
-GET /api/v1/categories/{id} → Busca categoria por ID
-
-POST /api/v1/categories/ → Cria nova categoria
-
-PATCH /api/v1/categories/{id} → Atualiza categoria
-
-DELETE /api/v1/categories/{id} → Remove categoria
-
-📊 Exemplos de Requisição
-Criar Livro
-POST /api/v1/books/
-Content-Type: application/json
-
+POST /api/v1/books
 {
   "title": "Clean Code",
   "author": "Robert C. Martin",
-  "price": 45.99,
+  "price": 120.00,
   "category_id": 1
 }
 
-Resposta
+
+Response:
+
 {
-  "id": 1,
+  "id": 10,
   "title": "Clean Code",
   "author": "Robert C. Martin",
-  "price": 45.99,
+  "price": 120.00,
   "category_id": 1
 }
 
-🗂 Pipeline Arquitetural
-flowchart TD
-    A[Web Scraping 📡] --> B[CSV Storage 💾]
-    B --> C[FastAPI REST API 🚀]
-    C --> D[Swagger Docs 📑]
-    C --> E[Render Deployment ☁️]
-    E --> F[Consumo por Cientistas de Dados/ML 🤖]
+🕸 Sistema de Web Scraping
 
-🔮 Escalabilidade e Futuro
+Fonte: Books to Scrape
+Script: scripts/scraping_books.py
+Saída: data/books.csv
+Executar scraping:
+python scripts/scraping_books.py
 
-Banco de Dados: integração futura com PostgreSQL ou MongoDB.
+🏗 Arquitetura do Projeto
+[ Books.toscrape ] → [ Scraper ] → [ CSV/Data ] → [ API FastAPI ] → [ Usuário Final / Cientista de Dados ]
 
-Machine Learning: recomendações de livros baseadas nos dados extraídos.
+Escalabilidade: Arquitetura modular preparada para banco SQL real.
 
-CI/CD: pipeline automatizado com GitHub Actions e Render.
+Integração futura: Conexão com modelos de ML para análise de preços, recomendações e previsões de demanda.
 
-✍️ Desenvolvido por Dione Braga Ferreira
+👨‍💻 Tecnologias Utilizadas
+
+Python 3.12
+FastAPI
+Uvicorn
+SQLAlchemy
+Pydantic v2
+BeautifulSoup4
+
+💡 Autor: Dione Braga
+📌 Projeto desenvolvido para o Tech Challenge - Engenharia de Dados / Machine Learning
