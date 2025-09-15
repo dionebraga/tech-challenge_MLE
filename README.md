@@ -22,21 +22,21 @@ tech_challenge/
 ├── data/                     # Dados exportados em CSV
 ├── requirements.txt          # Dependências do projeto
 └── README.md
-
-⚙️ Instalação e Configuração
+---
+## ⚙️ Instalação e Configuração
 
 Clone o repositório:
 
 git clone https://github.com/seu-usuario/tech_challenge.git
 cd tech_challenge
 
-Crie um ambiente virtual:
+## Crie um ambiente virtual:
 
 python -m venv .venv
 source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 
-Instale as dependências:
+## Instale as dependências:
 pip install -r requirements.txt
 
 Rode localmente:
@@ -44,6 +44,7 @@ uvicorn tech_challenge_books_api.main:app --reload
 
 Acesse em: http://127.0.0.1:8000/docs
 
+---
 🌐 Documentação da API
 
 A documentação interativa está disponível via Swagger UI:
@@ -96,6 +97,7 @@ Saída: data/books.csv
 Executar scraping:
 python scripts/scraping_books.py
 
+---
 🏗 Arquitetura do Projeto
 [ Books.toscrape ] → [ Scraper ] → [ CSV/Data ] → [ API FastAPI ] → [ Usuário Final / Cientista de Dados ]
 
@@ -103,8 +105,8 @@ Escalabilidade: Arquitetura modular preparada para banco SQL real.
 
 Integração futura: Conexão com modelos de ML para análise de preços, recomendações e previsões de demanda.
 
+---
 👨‍💻 Tecnologias Utilizadas
-
 Python 3.12
 FastAPI
 Uvicorn
@@ -112,5 +114,6 @@ SQLAlchemy
 Pydantic v2
 BeautifulSoup4
 
+---
 💡 Autor: Dione Braga
 📌 Projeto desenvolvido para o Tech Challenge - Engenharia de Dados / Machine Learning
