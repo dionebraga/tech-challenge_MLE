@@ -1,2 +1,2 @@
-from .book_schema import Book, BookCreate, BookUpdate
-from .category_schema import CategoryResponse, CategoryCreate, CategoryUpdate
+from .livro_schema import Livro, LivroCreate, LivroUpdate
+from .category_schema import Categoria, CategoriaCreate, CategoriaUpdate

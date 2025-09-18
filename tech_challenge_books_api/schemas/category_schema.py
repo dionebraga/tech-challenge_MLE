@@ -1,19 +1,17 @@
 from pydantic import BaseModel
 
-class CategoryBase(BaseModel):
-    name: str
-
-class CategoryCreate(CategoryBase):
-    """🏷️ Schema para criação de categoria"""
-    pass
-
-class CategoryUpdate(CategoryBase):
-    """✏️ Schema para atualização de categoria"""
-    pass
-
-class CategoryResponse(CategoryBase):
-    """🏷️ Schema de resposta (categoria completa)"""
+# Schema de saída para Categoria 🏷️
+class CategoriaOut(BaseModel):
     id: int
+    nome: str
 
     class Config:
-        from_attributes = True
+        orm_mode = True
+
+
+# Schema de criação de Categoria ✍️
+class CategoriaCreate(BaseModel):
+    nome: str
+# Schema de atualização de Categoria 🔄
+class CategoriaUpdate(BaseModel):
+    nome: str | None = None

@@ -1,21 +1,29 @@
 from pydantic import BaseModel
+from typing import Optional
 
-class BookBase(BaseModel):
-    title: str
-    author: str
-    category_id: int
-
-class BookCreate(BookBase):
-    """📘 Schema para criação de livro"""
-    pass
-
-class BookUpdate(BookBase):
-    """✏️ Schema para atualização de livro"""
-    pass
-
-class Book(BookBase):
-    """📚 Schema de resposta (livro completo)"""
+# Schema de saída para Livro 📚
+class LivroOut(BaseModel):
     id: int
+    titulo: str
+    descricao: str
+    preco: float
+    categoria_id: Optional[int]
 
     class Config:
-        from_attributes = True
+        orm_mode = True
+
+
+# Schema de criação de Livro ✍️
+class LivroCreate(BaseModel):
+    titulo: str
+    descricao: str
+    preco: float
+    categoria_id: Optional[int]
+
+
+# Schema de atualização de Livro 🔄
+class LivroUpdate(BaseModel):
+    titulo: Optional[str]
+    descricao: Optional[str]
+    preco: Optional[float]
+    categoria_id: Optional[int]

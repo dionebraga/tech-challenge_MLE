@@ -3,11 +3,11 @@ from sqlalchemy.orm import relationship
 from tech_challenge_books_api.infra.database import Base
 
 # Modelo ORM de Categoria 🏷️
-class Category(Base):
-    __tablename__ = "categories"
+class Categoria(Base):
+    __tablename__ = "categorias"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False, unique=True)
+    nome = Column(String, unique=True, nullable=False)
 
     # Relacionamento com Livros 📚
-    books = relationship("Book", back_populates="category")
+    livros = relationship("Livro", back_populates="categoria")

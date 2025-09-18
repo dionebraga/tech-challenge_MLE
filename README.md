@@ -139,3 +139,36 @@ python scripts/scraping_books.py
 
 💡 **Autor:** Dione Braga  
 📌 Projeto desenvolvido para o **Tech Challenge - Engenharia de Dados / Machine Learning**  
+# 📚 Tech Challenge — API de Livros
+
+API desenvolvida como parte do **Tech Challenge** da fase, integrando conhecimentos de **Engenharia de Dados, APIs RESTful e Machine Learning**.  
+
+O projeto implementa um **pipeline de scraping → transformação → disponibilização via API pública** para que cientistas de dados e serviços de recomendação possam consumir os dados de livros com facilidade.
+
+---
+
+## 🚀 Arquitetura
+
+```mermaid
+flowchart LR
+    A[🌐 books.toscrape.com] -->|Scraping| B[(CSV / Banco de Dados)]
+    B -->|Disponibilização| C[⚡ FastAPI]
+    C -->|Deploy| D[☁️ Render]
+    D -->|Consumo| E[👩‍💻 Cientistas de Dados / Serviços ML]
+
+# 📚 Tech Challenge — API de Livros
+
+API desenvolvida como parte do **Tech Challenge** da fase, integrando conhecimentos de **Engenharia de Dados, APIs RESTful e Machine Learning**.  
+
+O projeto implementa um **pipeline de scraping → transformação → disponibilização via API pública** para que cientistas de dados e serviços de recomendação possam consumir os dados de livros com facilidade.
+
+---
+
+## 🚀 Arquitetura
+
+```mermaid
+flowchart LR
+    A[🌐 books.toscrape.com] -->|Scraping| B[(CSV / Banco de Dados)]
+    B -->|Disponibilização| C[⚡ FastAPI]
+    C -->|Deploy| D[☁️ Render]
+    D -->|Consumo| E[👩‍💻 Cientistas de Dados / Serviços ML]

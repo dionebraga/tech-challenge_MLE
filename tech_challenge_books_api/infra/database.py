@@ -1,26 +1,25 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base, Session
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# 🔗 URL do banco de dados (SQLite por padrão)
-DATABASE_URL = "sqlite:///./books.db"
+# URL do banco de dados (aqui SQLite, pode trocar se usar outro)
+SQLALCHEMY_DATABASE_URL = "sqlite:///./livros.db"
 
-# 🚀 Engine e sessão
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Base para os models
 Base = declarative_base()
 
-
-# Criar o banco de dados
-def create_db():
-    Base.metadata.create_all(bind=engine)
-
-
-# Dependência para obter a sessão do banco
+# Função de dependência para usar nas rotas
 def get_db():
-    db: Session = SessionLocal()
+    db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
+# Criar as tabelas
+def create_db():
+    Base.metadata.create_all(bind=engine)
+    print("Banco de dados e tabelas criados com sucesso! ✅")
