@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from tech_challenge_books_api.models.categoria_model import Categoria
-from schemas.category_schema import CategoriaCreate, CategoriaUpdate
+from models.category_model import Categoria
+from schemas.categoria_schema import CategoriaCreate, CategoriaUpdate
 
 # 📖 Buscar todas as categorias
 def get_all_categorias(db: Session):

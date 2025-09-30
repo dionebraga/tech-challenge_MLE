@@ -1,4 +1,7 @@
 ﻿fastapi
-uvicorn
+uvicorn[standard]
 sqlalchemy
 pydantic
+requests
+beautifulsoup4
+pandas

@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from tech_challenge_books_api.infra.database import get_db
-from tech_challenge_books_api.models.categoria_model import Categoria
+from models.category_model import Categoria
 from tech_challenge_books_api.schemas.categoria_schema import CategoriaOut, CategoriaCreate
 
 router = APIRouter(prefix="/api/v1", tags=["🏷️ Categorias"])
