@@ -6,7 +6,7 @@ class CategoriaOut(BaseModel):
     nome: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Schema de criação de Categoria ✍️

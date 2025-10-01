@@ -2,35 +2,35 @@ from pydantic import BaseModel
 from typing import Optional
 
 # 📚 Livros
-class BookBase(BaseModel):
+class LivroBase(BaseModel):
     title: str
     price: float
     stock: int
 
-class BookCreate(BookBase):
+class LivroCreate(LivroBase):
     pass
 
-class BookUpdate(BaseModel):
+class LivroUpdate(BaseModel):
     title: Optional[str]
     price: Optional[float]
     stock: Optional[int]
 
-class Book(BookBase):
+class Livro(LivroBase):
     id: int
     class Config:
         orm_mode = True
 
 # 🏷️ Categorias
-class CategoryBase(BaseModel):
+class CategoriaBase(BaseModel):
     name: str
 
-class CategoryCreate(CategoryBase):
+class CategoriaCreate(CategoriaBase):
     pass
 
-class CategoryUpdate(BaseModel):
+class CategoriaUpdate(BaseModel):
     name: Optional[str]
 
-class Category(CategoryBase):
+class Categoria(CategoriaBase):
     id: int
     class Config:
         orm_mode = True

@@ -3,6 +3,7 @@
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "C_Cpp.errorSquiggles": "enabled",
     "python.analysis.extraPaths": [
-        "./tech_challenge_books_api"
+        "./tech_challenge_books_api",
+        "./tech_challenge_books_api/schemas"
     ]
 }

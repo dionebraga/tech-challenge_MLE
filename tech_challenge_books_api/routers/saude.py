@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from tech_challenge_books_api.infra.database import get_db
+from ..infra.database import get_db
 
 router = APIRouter(prefix="/api/v1", tags=["❤️ Saúde"])
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-from tech_challenge_books_api.routers import livros, categorias, saude, scraping
+from .routers import livros, categorias, saude, scraping
 
 app = FastAPI(
     title="📚 Tech Challenge — API de Livros",

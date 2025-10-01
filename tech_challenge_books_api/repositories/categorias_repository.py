@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from models.category_model import Categoria
+from models.categoria_model import Categoria
 from schemas.categoria_schema import CategoriaCreate, CategoriaUpdate
 
 # 📖 Buscar todas as categorias

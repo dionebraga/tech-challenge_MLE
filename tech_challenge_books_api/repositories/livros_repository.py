@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from models.book_model import Livro
-from schemas.book_schema import LivroCreate, LivroUpdate
+from models.livro_model import Livro
+from livro_schema import LivroCreate, LivroUpdate
 
 # 📖 Buscar todos os livros
 def get_all_livros(db: Session):

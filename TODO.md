@@ -1,0 +1,8 @@
+- [x] Corrigir imports em main.py para relativos
+- [x] Corrigir imports em routers/livros.py para relativos
+- [x] Corrigir imports em routers/categorias.py para relativos e remover duplicatas
+- [x] Corrigir imports em routers/saude.py e scraping.py
+- [x] Corrigir imports em scripts/scraping.py
+- [x] Corrigir pydantic orm_mode para from_attributes
+- [x] Testar imports
+- [x] Executar a aplicação e verificar se funciona

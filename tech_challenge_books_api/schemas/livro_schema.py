@@ -10,7 +10,7 @@ class LivroOut(BaseModel):
     categoria_id: Optional[int]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Schema de criação de Livro ✍️

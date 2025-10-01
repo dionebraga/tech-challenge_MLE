@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
-from models.book_model import Livro
-from models.category_model import Categoria
+from tech_challenge_books_api.models.livro_model import Livro
+from tech_challenge_books_api.models.categoria_model import Categoria
 from tech_challenge_books_api.infra.database import SessionLocal
 
 BASE_URL = "https://books.toscrape.com/"

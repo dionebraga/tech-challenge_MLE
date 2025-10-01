@@ -2,9 +2,9 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from tech_challenge_books_api.infra.database import get_db
-from models.category_model import Categoria
-from tech_challenge_books_api.schemas.categoria_schema import CategoriaOut, CategoriaCreate
+from ..infra.database import get_db
+from ..models.categoria_model import Categoria
+from ..schemas.categoria_schema import CategoriaOut, CategoriaCreate, CategoriaUpdate
 
 router = APIRouter(prefix="/api/v1", tags=["🏷️ Categorias"])
 

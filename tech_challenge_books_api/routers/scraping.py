@@ -1,9 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+from scripts.scraping import scrape_books
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from tech_challenge_books_api.infra.database import get_db
-from tech_challenge_books_api.models.book_model import Livro
-from tech_challenge_books_api.models.category_model import Categoria
-from tech_challenge_books_api.scripts.scraping import scrape_books
+from ..infra.database import get_db
+from ..models.livro_model import Livro
+from ..models.categoria_model import Categoria
 import csv
 
 router = APIRouter(prefix="/api/v1/scraping", tags=["🕷️ Scraping"])

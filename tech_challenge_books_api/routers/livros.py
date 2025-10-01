@@ -1,9 +1,9 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from tech_challenge_books_api.infra.database import get_db
-from tech_challenge_books_api.models.book_model import Livro
-from tech_challenge_books_api.schemas.book_schema import LivroOut, LivroCreate, LivroUpdate
+from ..infra.database import get_db
+from ..models.livro_model import Livro
+from ..schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
 
 router = APIRouter(prefix="/api/v1/livros", tags=["📘 Livros"])
 
