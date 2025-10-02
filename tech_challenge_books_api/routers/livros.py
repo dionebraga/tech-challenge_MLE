@@ -4,14 +4,14 @@ from sqlalchemy.orm import Session
 from ..infra.database import get_db
 from ..models.livro_model import Livro
 from ..schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
-from tech_challenge_books_api.schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
 
 router = APIRouter(prefix="/api/v1/livros", tags=["📘 Livros"])
 
 # 📖 Buscar todos os livros
-@router.get("/", summary="Buscar Livros 📚")
-def listar_livros():
-    return {"status": "ok", "mensagem": "Rota de livros funcionando!"}
+@router.get("/", response_model=List[LivroOut], summary="Buscar Livros 📚")
+def listar_livros(db: Session = Depends(get_db)):
+    livros = db.query(Livro).all()
+    return livros
 
 
 # 🔎 Buscar livro por ID
@@ -22,6 +22,7 @@ def buscar_livro(livro_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Livro não encontrado")
     return livro
 
+
 # ➕ Criar livro
 @router.post("/", response_model=LivroOut, summary="Criar Livro ➕")
 def criar_livro(livro: LivroCreate, db: Session = Depends(get_db)):
@@ -30,6 +31,7 @@ def criar_livro(livro: LivroCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(novo_livro)
     return novo_livro
+
 
 # ✏️ Atualizar livro
 @router.put("/{livro_id}", response_model=LivroOut, summary="Atualizar Livro ✏️")
@@ -44,6 +46,7 @@ def atualizar_livro(livro_id: int, dados: LivroUpdate, db: Session = Depends(get
     db.commit()
     db.refresh(livro)
     return livro
+
 
 # ❌ Deletar livro
 @router.delete("/{livro_id}", summary="Deletar Livro ❌")
