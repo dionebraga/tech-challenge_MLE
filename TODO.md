@@ -5,4 +5,4 @@
 - [x] Corrigir imports em scripts/scraping.py
 - [x] Corrigir pydantic orm_mode para from_attributes
 - [x] Testar imports
-- [x] Executar a aplicação e verificar se funciona
+- [x] Executar a aplicação e verificar se funciona      

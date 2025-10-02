@@ -4,13 +4,15 @@ from sqlalchemy.orm import Session
 from ..infra.database import get_db
 from ..models.livro_model import Livro
 from ..schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
+from tech_challenge_books_api.schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
 
 router = APIRouter(prefix="/api/v1/livros", tags=["📘 Livros"])
 
 # 📖 Buscar todos os livros
-@router.get("/", response_model=List[LivroOut], summary="Buscar Livros 📚")
-def listar_livros(db: Session = Depends(get_db)):
-    return db.query(Livro).all()
+@router.get("/", summary="Buscar Livros 📚")
+def listar_livros():
+    return {"status": "ok", "mensagem": "Rota de livros funcionando!"}
+
 
 # 🔎 Buscar livro por ID
 @router.get("/{livro_id}", response_model=LivroOut, summary="Buscar Livro por ID 🔍")

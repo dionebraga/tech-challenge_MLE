@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-from .routers import livros, categorias, saude, scraping
+from tech_challenge_books_api.routers import livros, categorias, saude, scraping
+from tech_challenge_books_api.infra.database import Base, engine
+from tech_challenge_books_api.models import livro_model, categoria_model
+
+# 🔹 Cria todas as tabelas no banco automaticamente
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="📚 Tech Challenge — API de Livros",
@@ -44,4 +49,5 @@ app.openapi = custom_openapi
 
 @app.get("/", tags=["❤️ Saúde"], summary="Página inicial 🏠", include_in_schema=False)
 def root():
-    return {"mensagem": "Bem-vindo(a) à API de Livros do Tech Challenge!"}
+    return {"mensagem": "Bem-vindo(a) à API de Livros do Tech Challenge, com Dione Braga!"}
+# Rota raiz para teste rápido

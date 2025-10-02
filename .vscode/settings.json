@@ -4,6 +4,9 @@
     "C_Cpp.errorSquiggles": "enabled",
     "python.analysis.extraPaths": [
         "./tech_challenge_books_api",
-        "./tech_challenge_books_api/schemas"
+        "./tech_challenge_books_api/schemas",
+        "./",   
+    "./tech_challenge_books_api"
     ]
+
 }
