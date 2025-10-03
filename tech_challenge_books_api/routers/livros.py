@@ -7,11 +7,9 @@ from ..schemas.livro_schema import LivroOut, LivroCreate, LivroUpdate
 
 router = APIRouter(prefix="/api/v1/livros", tags=["📘 Livros"])
 
-# 📖 Buscar todos os livros
 @router.get("/", response_model=List[LivroOut], summary="Buscar Livros 📚")
 def listar_livros(db: Session = Depends(get_db)):
-    livros = db.query(Livro).all()
-    return livros
+    return db.query(Livro).all()
 
 
 # 🔎 Buscar livro por ID
